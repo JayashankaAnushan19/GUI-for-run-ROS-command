@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Command in Command Prompt</title>
+</head>
+<body>
+    <button onclick="runCommand()">Run Dir Command</button>
+    <div id="output"></div>
+
+    <script>
+        function runCommand() {
+            fetch('http://localhost:3000/run-command')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('output').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
